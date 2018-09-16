@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Xml;
 using System.Collections.ObjectModel;
 using System.Web;
+using System.Text.RegularExpressions;
 
 namespace fernandezsaavedraricardo.Channel9
 {
@@ -117,6 +118,9 @@ namespace fernandezsaavedraricardo.Channel9
                 RssItem item = new RssItem();
                 ParseElement(node, "title", ref item.Title);
                 ParseElement(node, "description", ref item.Description);
+                item.Description = Regex.Replace(item.Description, "<.*?>", String.Empty);
+                item.Description = Regex.Replace(item.Description, "&nbsp;", " ");
+                
                 ParseElement(node, "link", ref item.LinkFeed);
 
                 string date = null;
