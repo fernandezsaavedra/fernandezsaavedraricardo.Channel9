@@ -26,11 +26,7 @@ namespace fernandezsaavedraricardo.Channel9
                 rss.FeedUrl = "https://channel9.msdn.com/feeds/rss";
                 foreach (RssItem item in rss.Execute())
                 {
-                    //Response.Write(item.Title + "<br />");
-                    //listBox1.Items.Add(item.Title);
-                    //row = new DataGridViewRow;
-                    //row.Cells[1].Value = item.Title;
-                    //row.Cells[2].Value = item.Description;
+                    
                     grid.Rows.Add(item.Date,item.Title, item.Description, item.LinkFeed);
                 }
 
